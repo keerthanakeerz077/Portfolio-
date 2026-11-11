@@ -1,0 +1,791 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Keerthana's personal portfolio website">
+    <title>Keerthana | Personal Portfolio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --bg-color: #080808;
+            --second-bg: #111111;
+            --text-color: #f5f5f5;
+            --main-color: #d4af37;
+            --silver: #c0c0c0;
+            --card-color: #181818;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: 0.4s;
+        }
+
+        /* Navigation */
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.95);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 8%;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: 700;
+            color: var(--silver);
+        }
+
+        .logo span {
+            color: var(--main-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--silver);
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--main-color);
+        }
+
+        #theme-toggle {
+            background: var(--main-color);
+            color: #080808;
+            border: none;
+            padding: 9px 13px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        /* Home */
+
+        .home {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 120px 10% 60px;
+            gap: 40px;
+            background: radial-gradient(circle at 80% 50%, #252014, #080808 50%);
+        }
+
+        .home-content {
+            max-width: 650px;
+        }
+
+        .home-content h3 {
+            font-size: 24px;
+            font-weight: 500;
+            color: var(--silver);
+        }
+
+        .home-content h1 {
+            font-size: 65px;
+            color: var(--main-color);
+            font-weight: 800;
+            margin: 10px 0;
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .home-content p {
+            color: #b5b5b5;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37, #f5e6a8);
+            color: #080808;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            border: 2px solid var(--main-color);
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--main-color);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .profile {
+            width: 280px;
+            height: 280px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #d4af37, #c0c0c0);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.25);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .profile-circle {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 110px;
+            font-weight: 800;
+            color: var(--main-color);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+
+        
+
+        section {
+            padding: 100px 10%;
+            scroll-margin-top: 75px;
+        }
+
+        section:nth-of-type(even) {
+            background: var(--second-bg);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 38px;
+            margin-bottom: 45px;
+            color: var(--main-color);
+        }
+
+        
+
+        .about-content {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            background: var(--card-color);
+            padding: 35px;
+            border-radius: 15px;
+            line-height: 2;
+            color: var(--silver);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        
+
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-color);
+            padding: 30px;
+            border-radius: 15px;
+            width: 300px;
+            border: 1px solid rgba(192, 192, 192, 0.2);
+            transition: 0.4s;
+            text-align: center;
+        }
+
+        .card h3 {
+            color: var(--main-color);
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+
+        .card p {
+            color: var(--silver);
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--main-color);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.15);
+        }
+
+       
+
+        .skills-container {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .skill {
+            margin-bottom: 28px;
+        }
+
+        .skill h3 {
+            margin-bottom: 10px;
+            color: var(--silver);
+        }
+
+        .progress {
+            height: 12px;
+            background: #333333;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #c0c0c0, #d4af37);
+            border-radius: 20px;
+        }
+
+       
+
+        .hobbies-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+        }
+
+        .hobby {
+            width: 280px;
+            padding: 30px;
+            text-align: center;
+            background: var(--card-color);
+            border-radius: 15px;
+            border: 1px solid rgba(212, 175, 55, 0.25);
+            transition: 0.3s;
+        }
+
+        .hobby:hover {
+            transform: translateY(-8px);
+            border-color: var(--main-color);
+        }
+
+        .hobby h3 {
+            color: var(--main-color);
+            margin-bottom: 15px;
+        }
+
+        .hobby p {
+            color: var(--silver);
+            line-height: 1.8;
+        }
+
+        
+
+        .contact-content {
+            max-width: 650px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            margin-bottom: 15px;
+            color: var(--silver);
+        }
+
+        .contact-content a {
+            color: var(--main-color);
+            text-decoration: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 15px;
+            background: var(--card-color);
+            border: 1px solid #555;
+            border-radius: 10px;
+            color: var(--text-color);
+            font-family: inherit;
+            outline: none;
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--main-color);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
+
+        form button {
+            font-family: inherit;
+        }
+
+        #form-message {
+            margin-top: 10px;
+            color: var(--main-color);
+        }
+
+        /* Footer */
+
+        footer {
+            background: #050505;
+            text-align: center;
+            padding: 25px;
+            color: var(--silver);
+            font-size: 14px;
+            line-height: 2;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+       
+
+        body.light-mode {
+            --bg-color: #f1f1f1;
+            --second-bg: #dedede;
+            --text-color: #171717;
+            --main-color: #a67c00;
+            --silver: #555555;
+            --card-color: #ffffff;
+        }
+
+        body.light-mode header {
+            background: rgba(245, 245, 245, 0.95);
+        }
+
+        body.light-mode .nav-links a {
+            color: #333333;
+        }
+
+        body.light-mode .home {
+            background: radial-gradient(circle at 80% 50%, #e8dfc5, #f1f1f1 60%);
+        }
+
+        body.light-mode .profile-circle {
+            background: #ffffff;
+        }
+
+        body.light-mode .progress {
+            background: #cccccc;
+        }
+
+        body.light-mode footer {
+            background: #d5d5d5;
+            color: #333333;
+        }
+
+       
+
+        @media (max-width: 1000px) {
+            .navbar {
+                padding: 15px 5%;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 11px;
+            }
+
+            .home-content h1 {
+                font-size: 50px;
+            }
+
+            .profile {
+                width: 230px;
+                height: 230px;
+            }
+
+            .profile-circle {
+                width: 210px;
+                height: 210px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px 18px;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 160px;
+            }
+
+            .home-content h1 {
+                font-size: 45px;
+            }
+
+            .profile {
+                width: 190px;
+                height: 190px;
+            }
+
+            .profile-circle {
+                width: 175px;
+                height: 175px;
+                font-size: 80px;
+            }
+
+            section {
+                padding: 80px 6%;
+            }
+
+            .section-title {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 22px;
+            }
+
+            .home-content h1 {
+                font-size: 38px;
+            }
+
+            .card, .hobby {
+                width: 100%;
+            }
+
+            .about-content {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">Keerthana<span>.</span></h2>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <h3>Hello, welcome to my portfolio!</h3>
+            <h1>I'm <span>Keerthana</span></h1>
+
+            <p>
+                A first-year CSE student passionate about technology,
+                programming and exploring innovative ideas to build
+                meaningful solutions.
+            </p>
+
+            <a href="#about" class="btn">Explore My Portfolio</a>
+        </div>
+
+        <div class="profile">
+            <div class="profile-circle">K</div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+
+        <div class="about-content">
+            <p>
+                I'm Keerthana, a first-year Computer Science and
+                Engineering student specializing in Artificial
+                Intelligence and Machine Learning at Bosscoder
+                School of Technology.
+
+                I'm interested in learning new technologies,
+                developing creative solutions and improving
+                my programming skills.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+
+    <section id="education">
+        <h2 class="section-title">My Education</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Bosscoder School of Technology</h3>
+                <p>Computer Science and Engineering</p>
+                <p>Specialization: Artificial Intelligence & ML</p>
+                <p>Currently Pursuing - First Year</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+
+        <div class="skills-container">
+
+            <div class="skill">
+                <h3>HTML</h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width:75%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>CSS</h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width:65%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width:50%"></div>
+                </div>
+            </div>
+
+            <div class="skill">
+                <h3>Problem Solving</h3>
+                <div class="progress">
+                    <div class="progress-bar" style="width:70%"></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+
+    <section id="projects">
+        <h2 class="section-title">My Projects</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>Projects Coming Soon</h3>
+                <p>
+                    I'm currently learning and building projects
+                    to improve my technical skills.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+
+    <section id="hobbies">
+        <h2 class="section-title">Hobbies & Interests</h2>
+
+        <div class="hobbies-container">
+
+            <div class="hobby">
+                <h3>Reading</h3>
+                <p>
+                    I enjoy reading books on technology,
+                    programming and personal development.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>Traveling</h3>
+                <p>
+                    I love exploring new places and
+                    experiencing different cultures.
+                </p>
+            </div>
+
+            <div class="hobby">
+                <h3>Photography</h3>
+                <p>
+                    Capturing moments through photography
+                    is one of my favorite hobbies.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+
+    <section id="achievements">
+        <h2 class="section-title">Achievements</h2>
+
+        <div class="card-container">
+            <div class="card">
+                <h3>My Learning Journey</h3>
+                <p>
+                    Currently building technical knowledge
+                    and working on projects as a first-year student.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+
+        <div class="contact-content">
+
+            <p>
+                Email:
+                <a href="mailto:keerthanakeerz077@gmail.com">
+                    keerthanakeerz077@gmail.com
+                </a>
+            </p>
+
+            <p>
+                GitHub:
+                <a href="https://github.com/keerthanakeerz077"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit GitHub
+                </a>
+            </p>
+
+            <p>
+                LinkedIn:
+                <a href="https://www.linkedin.com/in/keerthana-m-a47537428"
+                   target="_blank" rel="noopener noreferrer">
+                    Visit LinkedIn
+                </a>
+            </p>
+
+            <form id="contact-form">
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Your Name"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Your Email"
+                    required
+                >
+
+                <textarea
+                    id="message"
+                    placeholder="Your Message"
+                    required
+                ></textarea>
+
+                <button type="submit" class="btn">
+                    Send Message
+                </button>
+
+                <p id="form-message"></p>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer>
+        <p>© 2026 Keerthana | Personal Portfolio</p>
+        <p>Designed with HTML, CSS and JavaScript</p>
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script>
+        // Light and Dark Theme Toggle
+
+        const themeToggle = document.getElementById("theme-toggle");
+
+        themeToggle.addEventListener("click", function () {
+            document.body.classList.toggle("light-mode");
+
+            if (document.body.classList.contains("light-mode")) {
+                themeToggle.textContent = "🌙";
+            } else {
+                themeToggle.textContent = "☀️";
+            }
+        });
+
+        // Contact Form Demo
+
+        const contactForm = document.getElementById("contact-form");
+        const formMessage = document.getElementById("form-message");
+
+        contactForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            formMessage.textContent =
+                "Thank you! Your message has been entered successfully.";
+
+            contactForm.reset();
+        });
+    </script>
+
+</body>
+</html>
